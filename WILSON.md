@@ -117,7 +117,11 @@ Because these conditions are necessary and sufficient for this convex problem, t
 | `--beta` (β) | 2 | how strongly distance deters | see below |
 | `--form` | power | shape of distance decay | power unless you have a reason |
 
-For **visits to shops, restaurants, places of worship, health services and parks**, β ≈ 2–2.5 reproduces the universal visitation law (visitors per unit area fall as distance⁻²; Schläpfer et al. 2021) in our Baltimore test. For **commuting**, observed US Census flows (LODES) in Baltimore fit β ≈ 0.8. Work trips are longer, so do not use one β for both. Low values such as 0.5 spread visitors across most of a city.
+For **visits to places** (shops, restaurants, gyms), **use β = 2**, the default. Two independent Baltimore checks agree:
+- Observed visitor home areas (Advan weekly patterns via Dewey, July 2025) fit β ≈ 2 for restaurants, 1.75 for retail and 1.5 for gyms; β = 1 fits much worse.
+- The universal visitation law (visitors per unit area fall as distance⁻²; Schläpfer et al. 2021) is reproduced at β ≈ 2–2.5.
+
+For **commuting**, observed US Census flows (LODES) in Baltimore fit β ≈ 0.8. Work trips are longer, so do not use one β for both. Low values such as 0.5 spread visitors across most of a city.
 
 ## 7. Outputs
 
@@ -165,6 +169,20 @@ occupancy = flows.sum(axis=0)
 - unreachable origins, refusal of partial reachability, the distance formula (1° of latitude ≈ 111.2 km), and the end-to-end table interface.
 
 Separately, the capped solver was compared with a general-purpose optimiser (scipy SLSQP) on 30 random problems. It was never worse: the largest difference was 3 × 10⁻¹⁴ in the objective.
+
+### Against current data
+
+These checks were run with the project's L1 pipeline and validation scripts, which are not in this repository; the results are summarised here.
+
+- **Baltimore place occupancy:** run through its command line on the pipeline's real inputs, this tool reproduces the L1 pipeline to the 10th significant digit (12 category, day and hour combinations; up to 3,250 places each).
+- **Observed commuting** (US Census LODES 2023, 219,842 Baltimore jobs, 618 × 2,369 block groups):
+  - The production-constrained model matches an independently written implementation to 1.4 × 10⁻⁶ jobs.
+  - It puts 47% of commuters in exactly the right home–work pair (Common Part of Commuters 0.466).
+  - Given the true destination totals, the doubly constrained model reaches 49%.
+- **Observed place visits** (Advan weekly patterns via Dewey, 21–27 July 2025; 566 Baltimore places matched by location and name):
+  - **Where visitors come from:** the best β is about 2 for restaurants, 1.75 for retail and 1.5 for gyms (likelihood of observed visitor home block groups).
+  - **How busy places are:** rank correlation with weekly visits is 0.30 for restaurants, 0.40 for retail and 0.52 for gyms. Floor area as size carries this; without size the correlation is about zero.
+  - Places of worship, health facilities and parks are not in the visit data, so they are untested.
 
 ## 10. Limits
 
