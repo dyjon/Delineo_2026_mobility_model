@@ -1,11 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
 import huffmodel
 import csv
+
 
 def parse_csv(path: str):
     pois = []
@@ -19,6 +14,7 @@ def parse_csv(path: str):
             i += 1
 
     return pois
+
 
 def output_probs(people: list[huffmodel.Person], pois: list[huffmodel.POI]):
     rows = []
@@ -49,6 +45,7 @@ def output_probs(people: list[huffmodel.Person], pois: list[huffmodel.POI]):
 
     return 1
 
+
 def main():
     pois = parse_csv(r"C:\Users\10734\Desktop\POI.csv")
 
@@ -62,6 +59,6 @@ def main():
 
     return 1
 
+
 if __name__ == "__main__":
     main()
-
