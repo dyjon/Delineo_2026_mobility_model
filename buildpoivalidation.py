@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[47]:
-
-
 import huffmodel
 import csv
 
@@ -49,6 +43,7 @@ def output_probs(people: list[huffmodel.Person], pois: list[huffmodel.POI]):
 
     return 1
 
+
 def main():
     pois = parse_csv(r"C:\Users\10734\Desktop\POI.csv")
 
@@ -68,9 +63,6 @@ if __name__ == "__main__":
     main()
 
 
-# In[48]:
-
-
 import pandas as pd
 
 df = pd.read_csv("test_output.csv")
@@ -83,17 +75,11 @@ print("Probability sum by person:")
 print(df.groupby("person_id")["prob"].sum())
 
 
-# In[49]:
-
-
 print(df.head())
 print("Number of destinations:", len(df))
 print("Probability sum:", df["prob"].sum())
 print("Minimum probability:", df["prob"].min())
 print("Maximum probability:", df["prob"].max())
-
-
-# In[50]:
 
 
 import numpy as np
@@ -105,13 +91,9 @@ print("All probabilities nonnegative:", (df["prob"] >= 0).all())
 print("All persons normalized:", np.allclose(df.groupby("person_id")["prob"].sum().to_numpy(), 1.0, atol=1e-8))
 
 
-# In[51]:
-
-
 pivot = df.pivot(index="place_id", columns="person_id", values="prob").fillna(0)
 
 print("Agent 1 vs Agent 2:")
 print(np.abs(pivot[1] - pivot[2]).sum())
 print("Agent 1 vs Agent 3:")
 print(np.abs(pivot[1] - pivot[3]).sum())
-
