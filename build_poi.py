@@ -1,4 +1,4 @@
-import huffmodel
+import huff_model
 import csv
 
 
@@ -10,13 +10,13 @@ def parse_csv(path: str):
         i = 1
 
         for row in data: 
-            pois.append(huffmodel.POI(i, float(row['poi_latitude']), float(row['poi_longitude']), row['poi_specific_category']))
+            pois.append(huff_model.POI(i, float(row['poi_latitude']), float(row['poi_longitude']), row['poi_specific_category']))
             i += 1
 
     return pois
 
 
-def output_probs(people: list[huffmodel.Person], pois: list[huffmodel.POI]):
+def output_probs(people: list[huff_model.Person], pois: list[huff_model.POI]):
     rows = []
 
     for person in people:
@@ -25,7 +25,7 @@ def output_probs(people: list[huffmodel.Person], pois: list[huffmodel.POI]):
         if not places:
             raise ValueError("No eligible destinations for this person.")
 
-        cdf = huffmodel.probability(person, places)
+        cdf = huff_model.probability(person, places)
         probabilities = []
 
         for i in range(len(cdf)):
@@ -52,7 +52,7 @@ def main():
     if len(pois) < 5:
         raise ValueError("At least 5 POIs are required.")
 
-    test_person = huffmodel.Person(1, pois[4], [], ['restaurants','bars_breweries','urban_parks'])
+    test_person = huff_model.Person(1, pois[4], [], ['restaurants','bars_breweries','urban_parks'])
     test_people = []
     test_people.append(test_person)
     output_probs(test_people, pois)
