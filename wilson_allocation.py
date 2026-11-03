@@ -223,15 +223,15 @@ def main(argv=None):
     cap = [str(r.get('capacity', '')).strip() for r in places]
     at_cap = [int(c != '' and x >= float(c) * (1 - 1e-9)) for x, c in zip(inflow, cap)]
     _write(f'{a.out}_places.csv', ['place_id', 'inflow', 'capacity', 'at_or_over_capacity'],
-           [[r['place_id'], f'{x:.6g}', c, f] for r, x, c, f in zip(places, inflow, cap, at_cap)])
+           [[r['place_id'], f'{x:.10g}', c, f] for r, x, c, f in zip(places, inflow, cap, at_cap)])
     _write(f'{a.out}_origins.csv', ['origin_id', 'total', 'allocated', 'unmet'],
-           [[r['origin_id'], r['total'], f'{x:.6g}', f'{u:.6g}'] for r, x, u in zip(origins, allocated, unmet)])
+           [[r['origin_id'], r['total'], f'{x:.10g}', f'{u:.10g}'] for r, x, u in zip(origins, allocated, unmet)])
     if a.flows:
         _write(f'{a.out}_flows.csv', ['origin_id', 'place_id', 'flow'],
-               [[origins[i]['origin_id'], places[j]['place_id'], f'{T[i, j]:.6g}']
+               [[origins[i]['origin_id'], places[j]['place_id'], f'{T[i, j]:.10g}']
                 for i, j in zip(*np.nonzero(T))])
     note = '' if a.model == 'capped' else ' (capacity not applied in this model)'
-    print(f'{a.model}: allocated {allocated.sum():.6g} of {totals.sum():.6g}, unmet {unmet.sum():.6g}, '
+    print(f'{a.model}: allocated {allocated.sum():.10g} of {totals.sum():.10g}, unmet {unmet.sum():.10g}, '
           f'{sum(at_cap)} place(s) at or over capacity{note}; wrote {a.out}_places.csv, {a.out}_origins.csv'
           + (f', {a.out}_flows.csv' if a.flows else ''))
 
