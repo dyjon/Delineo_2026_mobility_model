@@ -64,33 +64,42 @@ def sim_model(target: str):
                     if len(row) >= 28 and (str(row[27]).lower()) not in all_types:
                         all_types.append(str(row[27]).lower())
 
+    output = open("experiment_output.txt",'w')
+    
     #what group each location type is
     type_groups = []
+
     #the range of group numbers
-    group_nums = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    num_groups = int(input("Type the number of groups to form."))
+    group_nums = []
+    for i in range(num_groups):
+        group_nums.append(i)
 
     #start by putting everyone in random groups
     for i in all_types:
         type_groups.append(random.choice(group_nums))
 
+
     #place every type in the same group as the type most similar to it (using Levenshtein curve)
     max_sim = 0.0
     for j in range(len(all_types)):
-
         for k in range(len(all_types)):
             cur_sim = Levenshtein.ratio(all_types[j], all_types[k])
-            if cur_sim > max_sim:
+            if j != k and cur_sim > max_sim:
                 max_sim = cur_sim
                 type_groups[j] = type_groups[k]
 
         max_sim = 0.0
 
-    #print results
+    #write results to txt
+
     for a in range(len(group_nums)):
-        print(f"GROUP {a}:\n")
+        output.write(f"GROUP {a}:\n")
         for b in range(len(all_types)):
             if type_groups[b] == group_nums[a]:
-                print(f"{all_types[b]}\n")
+                output.write(f"{all_types[b]}\n")
+
+    output.close()
 
     return 1
 

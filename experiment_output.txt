@@ -1,0 +1,759 @@
+GROUP 0:
+elementary_school
+community_and_government
+hotels_other_lodging
+shopping
+community_center
+shopping_mall
+complementary_and_alternative_medicine
+cultural_center
+sculpture_statue
+top_category
+sub_category
+couriers and express delivery services
+port and harbor operations
+other airport operations 
+GROUP 1:
+specialized_health_care
+military_site
+specialized_learning
+specialized_medical_facility
+amusement_zoo_attractions
+amusement_attraction
+military_base
+science_attraction
+rooming and boarding houses, dormitories, and workers' camps
+rooming and boarding houses, dormitories, and workers' camps 
+lumber and other construction materials merchant wholesalers 
+roofing, siding, and insulation material merchant wholesalers 
+brick, stone, and related construction material merchant wholesalers 
+employment services
+employment placement agencies 
+temporary help services
+jewelry, watch, precious stone, and precious metal merchant wholesalers 
+GROUP 2:
+corporate_or_business_office
+corporate_offices
+research_institute
+research_workplaces
+religious_organization
+religious_organizations
+recreation_clubs_organizations
+youth_organization
+gasoline stations 
+other gasoline stations 
+business associations 
+solid waste landfill 
+other miscellaneous manufacturing
+all other miscellaneous manufacturing 
+other schools and instruction
+other investment pools and funds
+GROUP 3:
+general_merchandise_retail
+food_and_beverage_store
+flowers_and_gifts_store
+books_music_and_video_store
+government_office
+emergency_department
+educational_service
+government_department
+toys_and_games_store
+used merchandise stores 
+fitness and recreational sports centers 
+bakeries and tortilla manufacturing
+nonresidential property managers 
+paint, coating, and adhesive manufacturing
+paint and coating manufacturing
+motor vehicle manufacturing
+leather and hide tanning and finishing
+hobby, toy, and game stores 
+investigation and security services
+diet and weight reducing centers 
+educational support services
+motor vehicle body and trailer manufacturing
+motor vehicle body manufacturing 
+GROUP 4:
+warehouses_storage
+reproductive_perinatal_and_womens_care
+warehouse_club_store
+private mail centers 
+rv (recreational vehicle) parks and recreational camps
+rv (recreational vehicle) parks and campgrounds 
+GROUP 5:
+senior_living_facility
+senior_living_residential
+sport_or_fitness_facility
+media_service
+apartment_residential
+auto_dealer
+technical_service
+quick_service_food
+design_service
+medical_service
+storage_facility
+vehicle_service
+vehicle_dealer
+art_gallery
+waterfall
+movie_theater
+bed_and_breakfast
+distillery
+ticket_office_or_booth
+memorial_site
+makerspace
+tire dealers 
+supermarkets and other grocery (except convenience) stores 
+business support services
+all other business support services 
+boat dealers 
+car washes 
+other support services
+automobile dealers 
+lessors of nonresidential buildings (except miniwarehouses) 
+other information services
+fish and seafood markets 
+business, professional, labor, political, and similar organizations 
+lessors of residential buildings and dwellings 
+waste treatment and disposal 
+art dealers 
+oilseed and grain farming
+corn farming 
+fruit and tree nut farming
+grape vineyards 
+grain and oilseed milling
+fuel dealers 
+lessors of nonfinancial intangible assets (except copyrighted works)
+services to buildings and dwellings
+custom compounding of purchased resins 
+fruit and vegetable markets 
+other similar organizations (except business, professional, labor, and political organizations) 
+hazardous waste treatment and disposal 
+bed-and-breakfast inns 
+GROUP 6:
+sport_court
+food_court
+golf_course
+agriculture_farming
+event_venue
+sports_complex
+2025-07-27t00:00:00.000z
+2025-07-21t00:00:00.000z
+sound recording industries
+sound recording studios
+florists 
+locksmiths 
+GROUP 7:
+poi_original_category
+poi_specific_category
+convenience_store
+convenience_retail
+hospital
+hospitals
+hotel
+beauty salons 
+passenger car rental 
+activities related to credit intermediation 
+other activities related to credit intermediation 
+painting and wall covering contractors
+gasoline stations with convenience stores 
+convenience stores 
+plumbing, heating, and air-conditioning contractors 
+building material and supplies dealers 
+other building material dealers 
+support activities for road transportation
+motor vehicle towing
+nail salons 
+passenger car leasing 
+activities related to real estate
+securities and commodity contracts intermediation and brokerage
+furniture and home furnishing merchant wholesalers 
+foundation, structure, and building exterior contractors
+steam and air-conditioning supply 
+land subdivision
+land subdivision 
+support activities for water transportation
+line-haul railroads 
+support activities for air transportation
+GROUP 8:
+family_service
+beauty_wellness_services
+wellness_service
+fuel_ev_charging
+travel_agency
+marina
+travel agencies
+marinas
+pet care (except veterinary) services 
+advertising agencies
+GROUP 9:
+real_estate_service
+real_estate_services
+primary_secondary_school
+police_fire_public_safety
+outpatient_care_facility
+attorney_or_law_firm
+educational_facility
+library
+libraries
+theatre_venue
+embassy
+other amusement and recreation industries
+travel arrangement and reservation services
+all other amusement and recreation industries 
+GROUP 10:
+gym
+convention and trade show organizers
+GROUP 11:
+discount_store
+second_hand_store
+atm
+atms
+b2b_transportation_and_storage_service
+gas_station
+marinas_transport_other
+lake
+farmers_market
+public_transit_facility_or_service
+kiosk
+public_safety_service
+courthouse
+water_utility_provider
+air_transport_facility_or_service
+natural_gas_utility_provider
+electric_utility_provider
+lighthouse
+fruit and vegetable preserving and specialty food manufacturing
+other fabricated metal product manufacturing
+all other miscellaneous fabricated metal product manufacturing 
+other chemical product and preparation manufacturing
+GROUP 12:
+pharmacy_and_drug_store
+sport_or_recreation_club
+sports_and_recreation
+courts_detention
+pharmacies and drug stores 
+clothing stores 
+other clothing stores 
+automobile and other motor vehicle merchant wholesalers 
+family clothing stores 
+clothing accessories stores 
+floor covering stores 
+outdoor power equipment stores 
+GROUP 13:
+utilities_telecommunications
+gyms_fitness_studios
+parking_lot
+parking_facilities
+fitness_studio
+parking
+parking_garage
+parking lots and garages 
+specialty food stores 
+all other specialty food stores 
+insurance agencies and brokerages 
+securities brokerage 
+water, sewage and other systems 
+mortgage and nonmortgage loan brokers 
+basic chemical manufacturing
+materials recovery facilities 
+other measuring and controlling device manufacturing 
+all other basic organic chemical manufacturing 
+other basic inorganic chemical manufacturing 
+spectator sports
+GROUP 14:
+home_service
+automotive_service
+auto_service_sales
+b2b_service
+food_service
+food_service_other
+public_playgrounds_plazas
+public_plaza
+services_and_business
+automotive repair and maintenance
+financial transactions processing, reserve, and clearinghouse activities 
+accounting, tax preparation, bookkeeping, and payroll services
+other automotive mechanical and electrical repair and maintenance 
+automotive oil change and lubrication shops 
+consumer goods rental
+all other consumer goods rental 
+agencies, brokerages, and other insurance related activities
+plastics product manufacturing
+coating, engraving, heat treating, and allied activities
+metal coating, engraving (except jewelry and silverware), and allied services to manufacturers 
+all other plastics product manufacturing 
+motion picture and video industries
+motion picture theaters (except drive-ins) 
+automotive body, paint, and interior repair and maintenance 
+GROUP 15:
+community_social_services
+general automotive repair 
+drinking places (alcoholic beverages)
+drinking places (alcoholic beverages) 
+snack and nonalcoholic beverage bars 
+home centers 
+bowling centers
+automotive transmission repair 
+other general purpose machinery manufacturing
+industrial truck, tractor, trailer, and stacker machinery manufacturing 
+all other miscellaneous general purpose machinery manufacturing 
+GROUP 16:
+physical_medicine_and_rehabilitation
+office_supply_store
+casino
+cosmetics, beauty supplies, and perfume stores 
+libraries and archives 
+cafeterias, grill buffets, and buffets 
+office supplies, stationery, and gift stores 
+tire manufacturing (except retreading) 
+casino hotels
+petroleum bulk stations and terminals 
+office supplies and stationery stores 
+tire retreading 
+GROUP 17:
+casual_eatery
+telecommunications_service
+diagnostics_imaging_or_lab_service
+diagnostics_laboratories
+sporting_goods_store
+fueling_station
+cemetery
+ev_charging_station
+smoothie_juice_bar
+television_station
+date_range_end
+date_range_start
+barber shops 
+optical goods stores 
+commercial banking 
+sporting goods, hobby, and musical instrument stores 
+sporting goods stores 
+baked goods stores 
+consumer lending 
+other aluminum rolling, drawing, and extruding 
+radio and television broadcasting
+GROUP 18:
+amusement_park
+event_rental_services
+monument
+bars_breweries
+electronics_store
+home_electronics_retail
+bank_or_credit_union
+banks_branches
+cafes_beverages
+labor_union
+department_store
+brewery
+electronics and appliance stores 
+electronics stores 
+colleges, universities, and professional schools
+colleges, universities, and professional schools 
+food (health) supplement stores 
+drycleaning and laundry services 
+breweries
+department stores 
+management, scientific, and technical consulting services
+other professional, scientific, and technical services
+cemeteries and crematories 
+household appliance stores 
+amusement parks and arcades
+amusement and theme parks 
+drycleaning and laundry services (except coin-operated) 
+window treatment stores 
+amusement arcades
+GROUP 19:
+market
+furniture stores 
+meat markets 
+offices of real estate agents and brokers
+grocery and related product merchant wholesalers 
+coin-operated laundries and drycleaners 
+offices of lawyers
+general line grocery merchant wholesalers 
+petroleum and petroleum products merchant wholesalers 
+other grocery and related products merchant wholesalers 
+metal and mineral (except petroleum) merchant wholesalers 
+alumina and aluminum production and processing
+alumina refining and primary aluminum production 
+animal slaughtering and processing
+rendering and meat byproduct processing 
+offices of certified public accountants 
+miscellaneous durable goods merchant wholesalers 
+GROUP 20:
+park
+urban_parks
+fashion_and_apparel_store
+financial_service
+financial_services
+hardware_home_and_garden_store
+animal_or_pet_service
+animal_and_pet_store
+taxi_or_ride_share_service
+rv_park
+dog_park
+psychic_advising
+jail_or_prison
+astrological_advising
+full-service restaurants 
+health and personal care stores 
+limited-service restaurants 
+all other health and personal care stores 
+all other general merchandise stores 
+GROUP 21:
+historic_site
+historic_heritage_landmarks
+place_of_learning
+dance_club
+coffee_shop
+hindu_place_of_worship
+recreational_trail_or_path
+muslim_place_of_worship
+jewish_place_of_worship
+comedy_club
+recreational_equipment_rental
+place_of_worship
+building finishing contractors
+warehousing and storage
+general warehousing and storage 
+building equipment contractors
+historical sites
+lessors of miniwarehouses and self-storage units 
+iron and steel mills and ferroalloy manufacturing
+iron and steel mills and ferroalloy manufacturing 
+roofing contractors 
+refrigerated warehousing and storage
+cable and other subscription programming
+finish carpentry contractors
+scheduled air transportation
+scheduled freight air transportation 
+GROUP 22:
+performing_arts_venue
+performance_cinema_music
+music_venue
+b2b_science_and_technology_service
+cafe
+nightlife_gaming_venues
+nightlife_venue
+gaming_venue
+b2b_energy_and_utility_service
+garden
+arcade
+other miscellaneous store retailers 
+all other miscellaneous store retailers (except tobacco stores) 
+beer, wine, and liquor stores 
+animal food manufacturing
+dog and cat food manufacturing 
+motor and generator manufacturing 
+cut and sew apparel manufacturing
+men’s and boys’ cut and sew apparel manufacturing 
+gift, novelty, and souvenir stores 
+frozen specialty food manufacturing 
+other business service centers (including copy shops) 
+jewelry and silverware manufacturing 
+GROUP 23:
+specialty_outpatient_clinics
+pharmacy_retail
+grocery_food_retail
+convention and visitors bureaus 
+confectionery and nut stores 
+GROUP 24:
+health_services_unspecified
+lodging
+technology_environment_security
+lounge
+campus_building
+bridge
+college_university
+private_lodging
+building
+restaurants and other eating places
+other furniture related product manufacturing
+household and institutional furniture and kitchen cabinet manufacturing
+GROUP 25:
+sport_team
+radio_station
+train_station
+sport_league
+sport_field
+museums, historical sites, and similar institutions
+new car dealers 
+used car dealers 
+electrical equipment manufacturing
+communications equipment manufacturing
+other communications equipment manufacturing
+nature parks and other similar institutions
+conveyor and conveying equipment manufacturing 
+radio stations 
+heating equipment (except warm air furnaces) manufacturing 
+GROUP 26:
+education_unspecified
+personal_or_beauty_service
+social_or_community_service
+apparel_personal_retail
+civic_organization
+personal_pet_laundry_services
+entertainment_unspecified
+personal_care_and_beauty_store
+primary_care_or_general_clinic
+primary_family_clinics
+pediatric_clinic
+arts_crafts_and_hobby_store
+environmental_or_ecological_service
+industrial_facility_or_service
+rail_facility_or_service
+transit_terminals_services
+political_organization
+building_unspecified
+b2b_industrial_and_machine_service
+personal care services 
+hardware, and plumbing and heating equipment and supplies merchant wholesalers 
+plumbing and heating equipment and supplies (hydronics) merchant wholesalers 
+death care services 
+motor vehicle and motor vehicle parts and supplies merchant wholesalers 
+veterinary services 
+automobile manufacturing 
+mattress manufacturing
+armored car services 
+professional organizations 
+sign manufacturing
+industrial gas manufacturing
+malt manufacturing 
+investment advice 
+engineering services
+motor vehicle supplies and new parts merchant wholesalers 
+warm air heating and air-conditioning equipment and supplies merchant wholesalers 
+GROUP 27:
+food_bank
+food_and_drink
+food_truck_stand
+aquarium
+planetarium
+other personal services 
+traveler accommodation
+tax preparation services 
+funeral homes and funeral services 
+lessors of real estate
+lessors of other real estate property 
+refrigeration equipment and supplies merchant wholesalers 
+other wood product manufacturing
+other management consulting services 
+all other personal services 
+all other traveler accommodation 
+other food crops grown under cover 
+sugar and confectionery product manufacturing
+nonchocolate confectionery manufacturing
+machinery, equipment, and supplies merchant wholesalers 
+taxi and limousine service
+exam preparation and tutoring 
+remediation and other waste management services 
+upholstered household furniture manufacturing 
+heavy duty truck manufacturing
+electrical apparatus and equipment, wiring supplies, and related equipment merchant wholesalers 
+GROUP 28:
+household appliances and electrical and electronic goods merchant wholesalers 
+household appliances, electric housewares, and consumer electronics merchant wholesalers 
+jewelry, luggage, and leather goods stores 
+sewing, needlework, and piece goods stores 
+golf courses and country clubs
+trusts, estates, and agency accounts 
+luggage and leather goods stores 
+sports teams and clubs 
+GROUP 29:
+health_care
+arts_and_entertainment
+dental_care
+adult_entertainment_venue
+arts_and_crafts_space
+automotive parts, accessories, and tire stores 
+automotive parts and accessories stores 
+other millwork (including flooring) 
+automotive glass replacement shops 
+GROUP 30:
+christian_place_of_worship
+bar
+higher_education
+beach
+farm
+education
+buddhist_place_of_worship
+automotive equipment rental and leasing
+navigational, measuring, electromedical, and control instruments manufacturing
+ventilation, heating, air-conditioning, and commercial refrigeration equipment manufacturing
+GROUP 31:
+media_printing_services
+printing_service
+professional_design_services
+professional_service
+wholesale_distribution
+wholesaler
+water_geography_infrastructure
+b2b_office_and_professional_service
+tutoring_service
+winery
+inn
+utility_energy_infrastructure
+fresh fruit and vegetable merchant wholesalers 
+furniture merchant wholesalers 
+wineries 
+industrial supplies merchant wholesalers
+hardware merchant wholesalers 
+metal service centers and other metal merchant wholesalers 
+frozen fruit, juice, and vegetable manufacturing 
+GROUP 32:
+non_alcoholic_beverage_venue
+alcoholic_beverage_venue
+pier
+river
+men's clothing stores 
+women's clothing stores 
+children's and infants' clothing stores 
+rubber product manufacturing
+lime and gypsum product manufacturing
+gypsum product manufacturing
+GROUP 33:
+sports_facilities_fields
+preschool
+preschool_education
+construction_industrial
+musical_instrument_and_pro_audio_store
+zoo
+book stores and news dealers 
+hotels (except casino hotels) and motels 
+pet and pet supplies stores 
+postal service
+retail bakeries 
+depository credit intermediation 
+lawn and garden equipment and supplies stores 
+nursery, garden center, and farm supply stores 
+paint and wallpaper stores 
+greenhouse, nursery, and floriculture production
+nondepository credit intermediation 
+taxi service 
+photography studios, portrait 
+musical instrument and supplies stores 
+technical and trade schools 
+other technical and trade schools 
+GROUP 34:
+shipping_or_delivery_service
+courier_shipping_logistics
+home_property_services
+civic_membership_nonprofit
+physical_alternative_therapy
+laundry_service
+building_or_construction_service
+supplier_or_distributor
+rental_service
+surgery
+legal_services
+legal_service
+travel_service
+playground
+nature_reserve
+trails_nature_gardens
+campground
+security_service
+housing_or_property_service
+printing and related support activities
+legal services
+nonmetallic mineral mining and quarrying
+dimension stone mining and quarrying 
+construction and mining (except oil well) machinery and equipment merchant wholesalers 
+farm and garden machinery and equipment merchant wholesalers 
+industrial machinery and equipment merchant wholesalers 
+other transportation equipment manufacturing
+all other transportation equipment manufacturing 
+GROUP 35:
+worship_venues
+public_utility
+vehicle_parts_store
+stadium_golf_venues
+public_fountain
+stadium_arena
+geographic_entities
+commercial and industrial machinery and equipment rental and leasing
+construction, mining, and forestry machinery and equipment rental and leasing 
+insurance carriers
+direct property and casualty insurance carriers 
+direct life insurance carriers 
+home furnishings stores 
+all other home furnishings stores 
+truck, utility trailer, and rv (recreational vehicle) rental and leasing 
+general freight trucking
+general freight trucking, long-distance, truckload 
+general rental centers
+administration of economic programs 
+regulation and administration of transportation programs 
+other financial investment activities
+direct selling establishments 
+other commercial and industrial machinery and equipment rental and leasing 
+miscellaneous financial investment activities 
+GROUP 36:
+emergency_urgent_care
+emergency_or_urgent_care_facility
+condominium
+museums_art_culture
+museum
+museums 
+other motor vehicle dealers 
+motorcycle, atv, and all other motor vehicle dealers 
+pesticide, fertilizer, and other agricultural chemical manufacturing
+pesticide and other agricultural chemical manufacturing
+plastics packaging film and sheet (including laminated) manufacturing 
+GROUP 37:
+restaurant
+restaurants
+fast_food_restaurant
+manufacturer
+manufacturing_industry
+resort
+travel_and_transportation
+airport
+agricultural_service
+street_art
+wired and wireless telecommunications carriers
+wireless telecommunications carriers (except satellite)
+general merchandise stores, including warehouse clubs and supercenters 
+beverage manufacturing
+architectural, engineering, and related services
+architectural services
+advertising, public relations, and related services
+janitorial services 
+rail transportation
+GROUP 38:
+public_administration
+fire_station
+police_station
+skate_park
+event_festival_venues
+festival_venue
+skating_rink
+national_park
+toll_station
+commercial printing (except screen and books) 
+software publishers
+newspaper, periodical, book, and directory publishers
+newspaper publishers 
+GROUP 39:
+behavioral_or_mental_health_clinic
+mental_health_clinics
+high_school
+apartment
+specialty_school
+event_or_party_service
+specialty_retail
+vision_or_eye_care_clinic
+social_club
+dental_clinic
+specialty_store
+swimming_pool
+superstore
+middle_school
+urgent_care_clinic
+walk_in_clinic
+grocery stores 
+book stores 
+shoe stores 
+tobacco stores 
+hardware stores 
+jewelry stores 
