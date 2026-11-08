@@ -117,7 +117,12 @@ Because these conditions are necessary and sufficient for this convex problem, t
 | `--beta` (β) | 2 | how strongly distance deters | see below |
 | `--form` | power | shape of distance decay | power unless you have a reason |
 
-For **visits to places** (shops, restaurants, gyms), **use β = 2**, the default. Two independent Baltimore checks agree:
+For **visits to places** (shops, restaurants, gyms), the Baltimore checks against observed visits suggest:
+- **size** = the whole building footprint (not split among tenants), with **α ≈ 0.25**: visits rise only slowly with size (fitted 0.22, 95% interval 0.15–0.29, 661 places matched to Dewey/Advan);
+- branded places (Overture `brand`) about **1.85×** as attractive at the same size; multiply their size by 1.85^(1/α) when using this tool, since its weight is size^α;
+- **β ≈ 1.75** pooled (restaurants 2, retail 1.75, gyms 1.5).
+
+The defaults (α = 1, β = 2) are kept for generality. Evidence for β:
 - Observed visitor home areas (Advan weekly patterns via Dewey, July 2025) fit β ≈ 2 for restaurants, 1.75 for retail and 1.5 for gyms; β = 1 fits much worse.
 - The universal visitation law (visitors per unit area fall as distance⁻²; Schläpfer et al. 2021) is reproduced at β ≈ 2–2.5.
 
