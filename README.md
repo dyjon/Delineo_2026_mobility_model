@@ -17,6 +17,7 @@ Team: Liam Perez, Jingcheng Shi, Qianli Ning.
 | [`POI.csv`](POI.csv) | Baltimore points of interest (see Data). | Data |
 | [`POI-Dewey.csv`](POI-Dewey.csv) | Observed visits to places, one week (see Data). | Data |
 | [`build_poi_validation.py`](build_poi_validation.py) | Validate Huff model destination choice probabilities by computing the probabilities that agents from different origins choose each eligible POI based on Huff model and evaluating whether the resulting probability distributions are mathematically consistent. | In progress |
+| [`combined_model.py`](combined_model.py) | Uses desirability ranking from huff_model.py without changing that file, then adds: building area^0.25 × brand 1.85 ÷ distance^1.75 in the choice weights; the capacity-limited Wilson step; one final draw per person. | — |
 
 
 ### How the two models fit together
