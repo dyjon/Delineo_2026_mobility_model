@@ -16,6 +16,8 @@ Team: Liam Perez, Jingcheng Shi, Qianli Ning.
 | [`poitype_filter_test.py`](poitype_filter_test.py) | Interactive helper: type a keyword and it lists the matching general and specific POI categories in the data files (used to decide which categories count as e.g. bars). | Utility |
 | [`POI.csv`](POI.csv) | Baltimore points of interest (see Data). | Data |
 | [`POI-Dewey.csv`](POI-Dewey.csv) | Observed visits to places, one week (see Data). | Data |
+| [`build_poi_validation.py`](build_poi_validation.py) | Validate Huff model destination choice probabilities by computing the probabilities that agents from different origins choose each eligible POI based on Huff model and evaluating whether the resulting probability distributions are mathematically consistent. | In progress |
+
 
 ### How the two models fit together
 
