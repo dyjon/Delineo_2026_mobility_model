@@ -59,8 +59,11 @@ def main():
     wilson_output = wilson_allocation.capped_production(len(test_people), prob_matrix, 100)
 
     #ask for clarification on how to output the Wilson model's results for testing
+    person_count = 0
     for i in wilson_output:
-        print(i)
+        loc = huff_model.pick_location(i, pois)
+        print(f"person {person_count} selects location {loc}")
+        person_count += 1
 
     return 1
 
