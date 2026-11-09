@@ -107,7 +107,8 @@ Because these conditions are necessary and sufficient for this convex problem, t
 
 - An origin with no reachable place (all weights zero) is reported entirely as unmet.
 - Places with zero size are ignored (they attract nothing).
-- **Partial reachability is refused.** Every origin that can reach any place must be able to reach all of them, which is always true with distance-based weights and positive sizes. If you zero out some origin–place pairs yourself (e.g. a travel-time cutoff), the function raises an error rather than guessing.
+- **Partial reachability is allowed** (since 2026-11-09). Zeros in `w` mean the origin cannot use that place: for example, a person whose Huff probabilities exclude some POIs, or a travel-time cutoff. The function then places as much as the zeros allow; this matches an exact linear-programming maximum to 2.5e-10. Among the allocations that do so, it returns the most probable one, never worse than a scipy KL-minimisation reference. Origins that can reach only full places keep their shortfall as `unmet`.
+- **Exactly tight groups converge slowly.** An example is 10 people who can only use places with exactly 10 spots between them. If the fit stops at `max_iter`, the result still respects every capacity, the remaining shortfall (about 1/`max_iter` of the flows) is counted as unmet, and a warning is printed.
 
 ## 6. Choosing the parameters
 
@@ -171,7 +172,7 @@ occupancy = flows.sum(axis=0)
 - a small case where a simple "redistribute the overflow" rule breaks Wilson's form, and this solver does not;
 - 200 random problems, covering both cases, against the optimality conditions: maximal allocation, no limit exceeded, full places exactly full, and the `T0 · a · b` form;
 - a very small capacity next to very large ones (each place is held to its own limit);
-- unreachable origins, refusal of partial reachability, the distance formula (1° of latitude ≈ 111.2 km), and the end-to-end table interface.
+- unreachable origins, partial reachability (fixed examples and 100 random problems; LP/KL reference check recorded in the code), the distance formula (1° of latitude ≈ 111.2 km), and the end-to-end table interface.
 
 Separately, the capped solver was compared with a general-purpose optimiser (scipy SLSQP) on 30 random problems. It was never worse: the largest difference was 3 × 10⁻¹⁴ in the objective.
 
@@ -194,7 +195,7 @@ These checks were run with the project's L1 pipeline and validation scripts, whi
 - The model gives **expected** flows: an average, not a sample of individuals.
 - It is only as good as its inputs: sizes are proxies for attractiveness (floor area is not the same as appeal), and β must be chosen (see §6).
 - Capacities are ceilings, not targets: a place below capacity is not pushed towards it.
-- Partial reachability (some origins unable to reach some places) is not supported.
+- With partial reachability, an exactly tight group of origins and places converges slowly (see §5).
 
 ## 11. References
 

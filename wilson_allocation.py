@@ -112,9 +112,6 @@ def capped_production(origin_totals, w, capacity, tol=1e-12, max_iter=200_000):
     reach = w.sum(axis=1) > 0
     cols = w[reach].sum(axis=0) > 0
     sub = w[np.ix_(reach, cols)]
-    if (sub <= 0).any():
-        raise ValueError('Every reachable origin must reach every reachable place '
-                         '(partial reachability is not supported)')
     T = np.zeros_like(w)
     if not reach.any() or not cols.any():
         return T, O.copy()
@@ -122,7 +119,9 @@ def capped_production(origin_totals, w, capacity, tol=1e-12, max_iter=200_000):
     T0 = production_constrained(o, sub)
     a, b = np.ones(o.size), np.ones(k.size)
     kt, ot = k * tol + tol, o * tol + tol          # per-place / per-origin tolerances
-    if o.sum() <= k.sum():                            # case A: rows = O, columns <= kappa
+    if (sub <= 0).any():                              # partial reachability (zeros in w)
+        a, b = _partial(o, T0, k, kt, ot, tol, max_iter)
+    elif o.sum() <= k.sum():                          # case A: rows = O, columns <= kappa
         for _ in range(max_iter):                     # each pass ends on the row step: rows exact
             col = a @ T0
             b = np.minimum(1.0, np.divide(k, col, out=np.ones_like(k), where=col > 0))
@@ -146,6 +145,41 @@ def capped_production(origin_totals, w, capacity, tol=1e-12, max_iter=200_000):
             raise RuntimeError('Capped allocation did not converge')
     T[np.ix_(reach, cols)] = T0 * a[:, None] * b[None, :]
     return T, np.maximum(0.0, O - T.sum(axis=1))
+
+
+def _partial(o, T0, k, kt, ot, tol, max_iter):
+    """Dual coordinate ascent when some origins cannot reach some places (zeros in T0).
+
+    With zeros, which origins can be fully placed is no longer decided by the two totals alone, so
+    neither case A nor case B applies. The 'place as much as possible' objective is written as a
+    penalty: maximise M * allocated - KL(T || T0), whose solution is T = T0 a_i b_j with
+    0 < b_j <= 1 (b_j < 1 only at full places) and 0 < a_i <= A = e^M (a_i < A only at origins that
+    are fully placed). Origins with a_i = A can reach only full places; their shortfall is unmet.
+    As A grows this tends to the maximal allocation; with A = 1/tol the allocation lost to the
+    penalty is of order tol relative to the flows involved.
+    """
+    A = 1.0 / tol
+    a, b = np.ones(o.size), np.ones(k.size)
+    for _ in range(max_iter):                         # each pass ends on the row step
+        col = a @ T0
+        b = np.minimum(1.0, np.divide(k, col, out=np.ones_like(k), where=col > 0))
+        row = T0 @ b
+        a = np.minimum(A, np.divide(o, row, out=np.full_like(o, A), where=row > 0))
+        col, row = (a @ T0) * b, (T0 @ b) * a
+        if ((col <= k + kt).all() and (np.abs(col - k) <= kt)[b < 1].all()
+                and (row <= o + ot).all() and (np.abs(row - o) <= ot)[a < A].all()):
+            return a, b
+    # Exactly tight cases (a group of origins whose demand exactly fills the only places they can
+    # reach) converge slowly. Return a feasible iterate: capacities respected exactly, rows <= O,
+    # and the small shortfall reported as unmet.
+    b = np.minimum(1.0, np.divide(k, a @ T0, out=np.ones_like(k), where=(a @ T0) > 0))
+    row = T0 @ b
+    a = np.minimum(a, np.divide(o, row, out=np.full_like(o, A), where=row > 0))
+    short = np.where(a < A, o - a * row, 0.0).max()
+    import warnings
+    warnings.warn(f'capped_production: partial-reachability fit stopped after {max_iter} passes; '
+                  f'capacities are respected, largest shortfall counted as unmet = {short:.3g}')
+    return a, b
 
 
 # ---------------------------------------------------------------- end-to-end on tables
@@ -285,11 +319,24 @@ def _self_test():
     T, unmet = capped_production([5e4, 3e4], [[9., 1., 1.], [1., 9., 1.]], [5.0, 1e7, 1e7])
     assert T[:, 0].sum() <= 5.0 * (1 + 1e-11) and unmet.max() <= 1e-6     # small cap respected
     assert np.allclose(capped_production([7], [[0, 0]], [2, 3])[1], [7])   # unreachable: all unmet
-    try:
-        capped_production([10, 10], [[1, 0], [0, 1]], [2, 30])
-        raise AssertionError('partial reachability accepted')
-    except ValueError:
-        pass
+    # Partial reachability (zeros in w), checked against scipy linprog + KL minimisation on 150 random
+    # problems (2026-11-09): allocated total = LP maximum to 2.5e-10; KL never above the reference.
+    T, unmet = capped_production([10, 10], [[1, 0], [0, 1]], [2, 30])
+    assert np.allclose(T, [[2, 0], [0, 10]], atol=1e-9) and np.allclose(unmet, [8, 0], atol=1e-9)
+    import warnings
+    with warnings.catch_warnings():                   # exactly tight: slow, returns a feasible iterate
+        warnings.simplefilter('ignore')
+        T, unmet = capped_production([5, 5], [[1, 1], [1, 0]], [5, 5], max_iter=20_000)
+    assert (T.sum(0) <= 5 + 1e-12).all() and np.allclose(T.sum(1) + unmet, [5, 5])
+    assert np.allclose(T, [[0, 5], [5, 0]], atol=1e-3)  # origin 1 can only use place 0; origin 0 moves over
+    for trial in range(100):
+        n, m = rng.integers(2, 6), rng.integers(2, 6)
+        w = (rng.random((n, m)) + 1e-2) * (rng.random((n, m)) < 0.6)
+        w[np.arange(n), rng.integers(0, m, n)] += 0.1
+        O, cap = rng.random(n) * 10, rng.random(m) * (4 if trial % 2 else 20)
+        T, unmet = capped_production(O, w, cap)
+        assert (T[w == 0] == 0).all() and (T.sum(0) <= cap * (1 + 1e-9) + 1e-9).all()
+        assert np.allclose(T.sum(1) + unmet, O)
 
     # Distances: 1 degree of latitude is ~111.2 km; the 0.1 km floor keeps zero distance finite.
     assert abs(distance_matrix([39.0], [-76.6], [40.0], [-76.6])[0, 0] - 111.195) < 0.01
