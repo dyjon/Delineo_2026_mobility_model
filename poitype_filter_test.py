@@ -9,7 +9,7 @@ def main():
     target = target.lower()
 
     if len(sys.argv) > 1:
-        sim_model(target)
+        print(sim_model(target))
         
     else:
         print("Insufficient command line arguments\n")
@@ -23,18 +23,25 @@ def basic_model(target: str):
     for i in range(1,len(sys.argv)):
         with open(sys.argv[i], 'r', encoding='utf-8', errors='ignore') as f:
             data = csv.reader(f)
+            next(data, None)
+
             for row in data: 
                 #Dewey: categories are 28 (specific) and 30 (general). Jingcheng data: categories are 5 (general) and 6 (specific).
-                if (str(row[4]).lower()).find(target) != -1 and (str(row[4]).lower()) not in matches_gen:
-                    matches_gen.append(str(row[4]).lower())
-                if (str(row[5]).lower()).find(target) != -1 and (str(row[5]).lower()) not in matches_spec:
-                    matches_spec.append(str(row[5]).lower())
-    
-                if len(row) >= 30 and (str(row[29]).lower()).find(target) != -1 and (str(row[29]).lower()) not in matches_gen:
-                    matches_gen.append(str(row[29]).lower())
-                if len(row) >= 28 and (str(row[27]).lower()).find(target) != -1 and (str(row[27]).lower()) not in matches_spec:
-                    matches_spec.append(str(row[27]).lower())
-    
+                if len(row) < 6:
+                    continue
+
+                if len(row) >= 30:
+                    gen, spec = row[29].lower(), row[27].lower()
+
+                else:
+                    gen, spec = row[4].lower(), row[5].lower()
+
+                if target in gen and gen not in matches_gen:
+                    matches_gen.append(gen)
+
+                if target in spec and spec not in matches_spec:
+                    matches_spec.append(spec)
+
     print("GENERAL:\n")
     for a in matches_gen:
         print(f"{a}\n")
@@ -46,41 +53,54 @@ def basic_model(target: str):
     return 1
 
 def sim_model(target: str):
-
+    rng = random.Random(42)
     all_types = []
-    #grab a list of all location types 
+    # grab a list of all location types 
     for i in range(1,len(sys.argv)):
             with open(sys.argv[i], 'r', encoding='utf-8', errors='ignore') as f:
                 data = csv.reader(f)
+                next(data, None)
+
                 for row in data: 
-                    #Dewey: categories are 28 (specific) and 30 (general). Jingcheng data: categories are 5 (general) and 6 (specific).
-                    if (str(row[4]).lower()) not in all_types:
-                        all_types.append(str(row[4]).lower())
-                    if (str(row[5]).lower()) not in all_types:
-                        all_types.append(str(row[5]).lower())
-        
-                    if len(row) >= 30 and (str(row[29]).lower()) not in all_types:
-                        all_types.append(str(row[29]).lower())
-                    if len(row) >= 28 and (str(row[27]).lower()) not in all_types:
-                        all_types.append(str(row[27]).lower())
+                    # Dewey: categories are 28 (specific) and 30 (general). Jingcheng data: categories are 5 (general) and 6 (specific).
+                    if len(row) < 6:
+                        continue
+
+                    if len(row) >= 30:
+                        gen, spec = row[29].lower(), row[27].lower()
+
+                    else:
+                        gen, spec = row[4].lower(), row[5].lower()
+
+                    if gen and gen not in all_types:
+                        all_types.append(gen)
+
+                    if spec and spec not in all_types:
+                        all_types.append(spec)
+
+    if not all_types:
+        raise ValueError("No valid location types found.")
 
     output = open("experiment_output.txt",'w')
-    
-    #what group each location type is
+
+    # what group each location type is
     type_groups = []
 
-    #the range of group numbers
+    # the range of group numbers
     num_groups = int(input("Type the number of groups to form."))
+    if num_groups <= 0:
+        raise ValueError("Number of groups must be positive.")
+
     group_nums = []
     for i in range(num_groups):
         group_nums.append(i)
 
-    #start by putting everyone in random groups
+    # start by putting everyone in random groups
     for i in all_types:
-        type_groups.append(random.choice(group_nums))
+        type_groups.append(rng.choice(group_nums))
 
 
-    #place every type in the same group as the type most similar to it (using Levenshtein curve)
+    # place every type in the same group as the type most similar to it (using Levenshtein curve)
     max_sim = 0.0
     for j in range(len(all_types)):
         for k in range(len(all_types)):
@@ -91,7 +111,7 @@ def sim_model(target: str):
 
         max_sim = 0.0
 
-    #write results to txt
+    # write results to txt
 
     for a in range(len(group_nums)):
         output.write(f"GROUP {a}:\n")
@@ -99,26 +119,13 @@ def sim_model(target: str):
             if type_groups[b] == group_nums[a]:
                 output.write(f"{all_types[b]}\n")
 
-    #find the group with the highest total similarity to the target, then output that group
-    best_group = -1
-    group_ranking = [0]*num_groups
-    for a in range(len(group_nums)):
-        for b in all_types:
-            if type_groups[b] == group_nums[a]:
-                group_ranking[(group_nums[a])] += Levenshtein.ratio(target, all_types[b])
-
-    for b in range(len(group_ranking)):
-        if b == 0:
-            best_group = b
-        else:
-            if group_ranking[b] > group_ranking[b-1]:
-                best_group = b
-
+    # find the group with the highest average similarity to the target, then output that group
+    best_group = get_best_group(target, all_types, type_groups)
     output.close()
 
     return best_group
 
-#separation of sim model into multiple usable functions, given we have all POIs formatted as POI objects
+# separation of sim model into multiple usable functions, given we have all POIs formatted as POI objects
 def get_all_types(pois):
     all_types = []
     for p in pois:
@@ -128,11 +135,12 @@ def get_all_types(pois):
     return all_types
 
 def get_type_groups(all_types):
-    #what group each location type is
+    # what group each location type is
+    rng = random.Random(42)
     type_groups = []
-        
-    #the range of group numbers
-    # num_groups = int(input("Type the number of groups to form.")) SET GROUPS TO 40 FOR NOW
+
+    # the range of group numbers
+    # num_groups = int(input("Type the number of groups to form."))
     num_groups = 40
     group_nums = []
     for i in range(num_groups):
@@ -140,10 +148,10 @@ def get_type_groups(all_types):
         
     #start by putting everyone in random groups
     for i in all_types:
-        type_groups.append(random.choice(group_nums))
+        type_groups.append(rng.choice(group_nums))
         
         
-    #place every type in the same group as the type most similar to it (using Levenshtein curve)
+    # place every type in the same group as the type most similar to it (using Levenshtein curve)
     max_sim = 0.0
     for j in range(len(all_types)):
         for k in range(len(all_types)):
@@ -156,31 +164,33 @@ def get_type_groups(all_types):
 
     return type_groups
 
-
 def get_best_group(target, all_types, type_groups):
-    #the range of group numbers
-    # num_groups = int(input("Type the number of groups to form.")) SET GROUPS TO 40 FOR NOW
-    num_groups = 40
+    # the range of group numbers
+    # num_groups = int(input("Type the number of groups to form."))
+    num_groups = max(type_groups) + 1
     group_nums = []
     for i in range(num_groups):
         group_nums.append(i)
 
-    #find the group with the highest total similarity to the target, then output that group
+    # find the group with the highest average similarity to the target, then output that group
     best_group = -1
-    group_ranking = [0]*num_groups
-    for a in range(len(group_nums)):
-        for b in all_types:
-            if type_groups[b] == group_nums[a]:
-                group_ranking[(group_nums[a])] += Levenshtein.ratio(target, all_types[b])
-    
-    for b in range(len(group_ranking)):
-        if b == 0:
-            best_group = b
-        else:
-            if group_ranking[b] > group_ranking[b-1]:
-                best_group = b
+    max_average = float('-inf')
+    group_ranking = [0] * num_groups
 
-        return best_group
+    for i in range(len(all_types)):
+        group_ranking[type_groups[i]] += Levenshtein.ratio(target, all_types[i])
+
+    for i in range(num_groups):
+        count = type_groups.count(i)
+
+        if count > 0:
+            average = group_ranking[i] / count
+
+            if average > max_average:
+                max_average = average
+                best_group = i
+
+    return best_group
 
 if __name__ == "__main__":
     main()
