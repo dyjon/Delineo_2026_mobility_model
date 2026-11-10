@@ -66,7 +66,7 @@ def probability(subject: Person, locations: list[POI]):
     distances = []
 
     for i in range(len(locations)):
-        desirabilities.append(desirability(subject,locations[i]))
+        desirabilities.append(desirability(subject, locations[i], locations))
         distances.append(max(distance(subject, locations[i]), 1e-10))
 
     sum_weight = 0.0
