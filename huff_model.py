@@ -3,6 +3,7 @@
 
 import math
 import random
+import poitype_filter_test as pft
 
 #global variables gamma, lambda for Huff calculation
 
@@ -28,12 +29,24 @@ class Person:
 
 #de facto pseudocode asince I have not integrated data
 
-def desirability(subject: Person, location: POI):
-    if location.loc_type not in subject.desires:
+def desirability(subject: Person, location: POI, pois):
+    all_types = pft.get_all_types(pois)
+    type_groups = pft.get_type_groups(all_types)
+
+    valid_groups = []
+    for des in subject.desires:
+        valid_groups.append(pft.get_best_group(des, all_types, type_groups))
+
+    loc_num = all_types.index(location.loc_type)
+    if type_groups[loc_num] not in valid_groups:
         return 0
 
-    #larger the earlier in the list it is
-    return (len(subject.desires) - subject.desires.index(location.loc_type) + 1)
+    #return location's average similarity to all desires
+    destotal = 0
+    for des in subject.desires:
+        destotal += pft.Levenshtein.ratio(des, location.loc_type)
+
+    return (destotal / len(subject.desires))
 
 def distance(subject: Person, location: POI):
     if subject.cur_loc == location:

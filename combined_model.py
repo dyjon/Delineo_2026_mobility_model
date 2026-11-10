@@ -72,7 +72,7 @@ def huff_matrix(people, pois, size, brand, alpha=ALPHA, beta=BETA, brand_mult=BR
     d = wa.distance_matrix([q.cur_loc.lat for q in people], [q.cur_loc.long for q in people], lat, lon)
     P = np.zeros((len(people), len(pois)))
     for r, person in enumerate(people):
-        want = np.array([huff_model.desirability(person, p) for p in pois], float)
+        want = np.array([huff_model.desirability(person, p, pois) for p in pois], float)
         want[[k for k, p in enumerate(pois) if p.id == person.cur_loc.id]] = 0.0
         if not want.any():
             raise ValueError(f'No eligible destinations for person {person.id}')

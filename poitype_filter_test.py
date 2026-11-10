@@ -99,9 +99,88 @@ def sim_model(target: str):
             if type_groups[b] == group_nums[a]:
                 output.write(f"{all_types[b]}\n")
 
+    #find the group with the highest total similarity to the target, then output that group
+    best_group = -1
+    group_ranking = [0]*num_groups
+    for a in range(len(group_nums)):
+        for b in all_types:
+            if type_groups[b] == group_nums[a]:
+                group_ranking[(group_nums[a])] += Levenshtein.ratio(target, all_types[b])
+
+    for b in range(len(group_ranking)):
+        if b == 0:
+            best_group = b
+        else:
+            if group_ranking[b] > group_ranking[b-1]:
+                best_group = b
+
     output.close()
 
-    return 1
+    return best_group
+
+#separation of sim model into multiple usable functions, given we have all POIs formatted as POI objects
+def get_all_types(pois):
+    all_types = []
+    for p in pois:
+        if p.loc_type not in all_types:
+            all_types.append(p.loc_type)
+
+    return all_types
+
+def get_type_groups(all_types):
+    #what group each location type is
+    type_groups = []
+        
+    #the range of group numbers
+    # num_groups = int(input("Type the number of groups to form.")) SET GROUPS TO 40 FOR NOW
+    num_groups = 40
+    group_nums = []
+    for i in range(num_groups):
+        group_nums.append(i)
+        
+    #start by putting everyone in random groups
+    for i in all_types:
+        type_groups.append(random.choice(group_nums))
+        
+        
+    #place every type in the same group as the type most similar to it (using Levenshtein curve)
+    max_sim = 0.0
+    for j in range(len(all_types)):
+        for k in range(len(all_types)):
+            cur_sim = Levenshtein.ratio(all_types[j], all_types[k])
+            if j != k and cur_sim > max_sim:
+                max_sim = cur_sim
+                type_groups[j] = type_groups[k]
+        
+        max_sim = 0.0
+
+    return type_groups
+
+
+def get_best_group(target, all_types, type_groups):
+    #the range of group numbers
+    # num_groups = int(input("Type the number of groups to form.")) SET GROUPS TO 40 FOR NOW
+    num_groups = 40
+    group_nums = []
+    for i in range(num_groups):
+        group_nums.append(i)
+
+    #find the group with the highest total similarity to the target, then output that group
+    best_group = -1
+    group_ranking = [0]*num_groups
+    for a in range(len(group_nums)):
+        for b in all_types:
+            if type_groups[b] == group_nums[a]:
+                group_ranking[(group_nums[a])] += Levenshtein.ratio(target, all_types[b])
+    
+    for b in range(len(group_ranking)):
+        if b == 0:
+            best_group = b
+        else:
+            if group_ranking[b] > group_ranking[b-1]:
+                best_group = b
+
+        return best_group
 
 if __name__ == "__main__":
     main()
