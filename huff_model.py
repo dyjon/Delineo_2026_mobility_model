@@ -7,7 +7,7 @@ import random
 #global variables gamma, lambda for Huff calculation
 
 gma = 0.5
-lmb = 0.5
+lmb = 1.75   # distance exponent, fitted to observed visitor homes in POI-Dewey.csv (same as combined_model.BETA)
 
 #definitions of classes
 
