@@ -11,7 +11,7 @@ Team: Liam Perez, Jingcheng Shi, Qianli Ning.
 | [`wilson_allocation.py`](wilson_allocation.py) | **Population model.** Wilson's entropy-maximising spatial interaction models: how a population's time or trips from home areas split across places, optionally with a capacity limit per place. Library and command-line tool. | Working, tested. Explained in [WILSON.md](WILSON.md) |
 | [`WILSON.md`](WILSON.md) | Full explanation of the Wilson code: inputs, the four model versions, how the capacity-limited version is solved, parameter guidance, checks and validation results. | — |
 | [`examples/`](examples/) | Small example inputs for `wilson_allocation.py`: four Baltimore home areas and five restaurants. | — |
-| [`huff_model.py`](huff_model.py) | **Individual choice model.** Huff model for one agent: `Person` and `POI` classes, probability of choosing each POI from desirability and great-circle distance, and `pick_location` to sample one. | In progress |
+| [`huff_model.py`](huff_model.py) | **Individual choice model.** Huff model for one agent: `Person` and `POI` classes, probability of choosing each POI from desirability (1 if the POI's category is one the person wants, else 0) and great-circle distance, and `pick_location` to sample one. | In progress |
 | [`build_poi.py`](build_poi.py) | Loads `POI.csv` into `POI` objects for `huff_model.py` and writes choice probabilities for test agents. | In progress |
 | [`poitype_filter_test.py`](poitype_filter_test.py) | Interactive helper: type a keyword and it lists the matching general and specific POI categories in the data files (used to decide which categories count as e.g. bars). | Utility |
 | [`POI.csv`](POI.csv) | Baltimore points of interest (see Data). | Data |
@@ -29,7 +29,7 @@ Without capacity limits the two agree on average. An agent simulation using the 
 
 ## Quick start
 
-Python 3.9 or later. `wilson_allocation.py` needs numpy. `huff_model.py` and `poitype_filter_test.py` need Levenshtein; `combined_model.py` needs numpy and Levenshtein, and uses numba if installed (much faster); `build_poi_validation.py` needs pandas.
+Python 3.9 or later. `wilson_allocation.py` needs numpy. `poitype_filter_test.py` needs Levenshtein; `combined_model.py` needs numpy, and uses numba if installed (much faster); `build_poi_validation.py` needs pandas.
 
 ```bash
 pip install numpy Levenshtein numba pandas

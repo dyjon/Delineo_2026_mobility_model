@@ -3,7 +3,6 @@
 
 import math
 import random
-import poitype_filter_test as pft
 
 #global variables gamma, lambda for Huff calculation
 
@@ -27,26 +26,22 @@ class Person:
         #arranged by most desired location type first
         self.desires = desires
 
-#de facto pseudocode asince I have not integrated data
+def wants(desire: str, loc_type: str):
+    """True if a desire names this POI type: the exact category (e.g. 'restaurants'), or words
+    that all appear in it ('retail' -> 'grocery_food_retail', 'parks' -> 'urban_parks').
+    Whole words only, so 'park' does not pick up 'parking_facilities'."""
+    d, t = desire.lower().replace(' ', '_'), loc_type.lower()
+    return d == t or set(d.split('_')) <= set(t.split('_'))
 
-def desirability(subject: Person, location: POI, pois):
-    all_types = pft.get_all_types(pois)
-    type_groups = pft.get_type_groups(all_types)
 
-    valid_groups = []
-    for des in subject.desires:
-        valid_groups.append(pft.get_best_group(des, all_types, type_groups))
+def desirability(subject: Person, location: POI, pois=None):
+    """1 if the location's type is one the person wants, else 0.
 
-    loc_num = all_types.index(location.loc_type)
-    if type_groups[loc_num] not in valid_groups:
-        return 0
+    POI.csv categories are already standardised, so matching is on the category name, not on
+    string similarity between names (that grouped e.g. ATMs, museums and farms with
+    restaurants). `pois` is unused; kept so existing calls still work."""
+    return 1.0 if any(wants(d, location.loc_type) for d in subject.desires) else 0.0
 
-    #return location's average similarity to all desires
-    destotal = 0
-    for des in subject.desires:
-        destotal += pft.Levenshtein.ratio(des, location.loc_type)
-
-    return (destotal / len(subject.desires))
 
 def distance(subject: Person, location: POI):
     if subject.cur_loc == location:
@@ -95,3 +90,16 @@ def pick_location(probabilities: list[float], locations: list[POI]):
             return locations[l]
 
     return locations[-1]
+
+
+if __name__ == "__main__":
+    types = ['restaurants', 'atms', 'museums_art_culture', 'grocery_food_retail', 'urban_parks',
+             'parking_facilities', 'bars_breweries', 'quick_service_food']
+    home = POI(0, 39.29, -76.61, 'apartment_residential')
+    pick = lambda *ds: [t for t in types if desirability(Person(1, home, [], list(ds)), POI(1, 0, 0, t)) > 0]
+    assert pick('restaurants') == ['restaurants']
+    assert pick('retail') == ['grocery_food_retail']
+    assert pick('parks') == ['urban_parks'] and pick('park') == []
+    assert pick('restaurants', 'bars_breweries') == ['restaurants', 'bars_breweries']
+    assert pick('food') == ['grocery_food_retail', 'quick_service_food']
+    print('huff_model self-test passed')

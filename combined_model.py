@@ -66,34 +66,34 @@ def load_pois(path):
     return pois, np.array(size), np.array(brand), np.array(cap)
 
 
-_desire_cache = {}   # (POI list, desires, POI type) -> huff_model.desirability
-
-
 def huff_matrix(people, pois, size, brand, alpha=ALPHA, beta=BETA, brand_mult=BRAND, min_size=1.0):
     """People x POIs choice probabilities. Zero where the person does not want that POI type or is
     already there. POIs without a building get size min_size (1 m2), so they stay choosable but weak."""
     lat = np.array([p.lat for p in pois]); lon = np.array([p.long for p in pois])
     attract = np.maximum(size, min_size) ** alpha * np.where(brand, brand_mult, 1.0)
-    d = wa.distance_matrix([q.cur_loc.lat for q in people], [q.cur_loc.long for q in people], lat, lon)
-    P = np.zeros((len(people), len(pois)))
-    done = {}                                      # (start POI, desires) -> row already computed
-    for r, person in enumerate(people):
-        same = (person.cur_loc.id, tuple(person.desires))
-        if same in done:
-            P[r] = P[done[same]]
-            continue
-        done[same] = r
-        # desirability depends only on the POI type and the person's desires: score each type once
-        key = (id(pois), len(pois), tuple(person.desires))
-        for p in pois:
-            if (key, p.loc_type) not in _desire_cache:
-                _desire_cache[(key, p.loc_type)] = huff_model.desirability(person, p, pois)
-        want = np.array([_desire_cache[(key, p.loc_type)] for p in pois], float)
-        want[[k for k, p in enumerate(pois) if p.id == person.cur_loc.id]] = 0.0
+    types, first, tidx = np.unique([p.loc_type for p in pois], return_index=True, return_inverse=True)
+    index = {p.id: k for k, p in enumerate(pois)}
+    # people with the same start POI and desires share one row: compute each row once
+    rows, row_of = {}, []
+    for person in people:
+        row_of.append(rows.setdefault((person.cur_loc.id, tuple(person.desires)), len(rows)))
+    reps = {g: person for person, g in zip(people, row_of)}
+    reps = [reps[g] for g in range(len(rows))]
+    d = wa.distance_matrix([q.cur_loc.lat for q in reps], [q.cur_loc.long for q in reps], lat, lon)
+    by_type = {}                                   # desires -> desirability per POI type
+    U = np.zeros((len(reps), len(pois)))
+    for g, person in enumerate(reps):
+        key = tuple(person.desires)
+        if key not in by_type:
+            by_type[key] = np.array([huff_model.desirability(person, pois[k], pois) for k in first], float)
+        want = by_type[key][tidx]
+        if person.cur_loc.id in index:
+            want[index[person.cur_loc.id]] = 0.0
         if not want.any():
             raise ValueError(f'No eligible destinations for person {person.id}')
-        w = want ** huff_model.gma * attract * wa.deterrence(d[r], beta)
-        P[r] = w / w.sum()
+        w = want ** huff_model.gma * attract * wa.deterrence(d[g], beta)
+        U[g] = w / w.sum()
+    P = U[row_of]
     return P
 
 
@@ -130,7 +130,7 @@ def _self_test():
     size, brand = np.array([400.0, 100.0, 0.0, 900.0]), np.array([False, True, False, False])
     people = [huff_model.Person(k, pois[k % 4], [], ['restaurants']) for k in range(40)]
     P = huff_matrix(people, pois, size, brand)
-    assert np.allclose(P.sum(1), 1)          # (which types are wanted is huff_model.desirability's call)
+    assert np.allclose(P.sum(1), 1) and (P[:, 2] == 0).all()                         # park not wanted
     assert all(P[r, pois.index(q.cur_loc)] == 0 for r, q in enumerate(people))        # current place excluded
     cap = np.array([5.0, NO_LIMIT, NO_LIMIT, 8.0])
     choices, final, unmet = select(people, pois, P, cap, np.random.default_rng(1))
