@@ -1,5 +1,6 @@
 import huff_model
 import csv
+import json
 
 def parse_csv(path: str):
     pois = []
@@ -11,6 +12,22 @@ def parse_csv(path: str):
         for row in data: 
             pois.append(huff_model.POI(i, float(row['poi_latitude']), float(row['poi_longitude']), row['poi_specific_category']))
             i += 1
+
+    return pois
+
+def parse_geojson(path: str):
+    pois = []
+    top_level_tags = ["aeroway","amenity","barrier","cemetery","club","craft","dark_store","education","emergency","healthcare","highway","historic","landuse","leisure","man_made","mooring","natural","office","power","public_transport","railway","shop","telecom","tourism","traffic_calming","tunnel","waterway"]
+
+    with open(path,"r",encoding="utf-8-sig",newline="") as f:
+        data = json.load(f)
+        for row in data["features"]:
+            loctype = ''
+            for tag in top_level_tags:
+                if(tag in row["properties"].keys()):
+                    loctype += row["properties"]["amenity"] + ' '
+            
+            pois.append(huff_model.POI(row["id"], row["geometry"]["coordinates"][0], row["geometry"]["coordinates"][1], loctype))
 
     return pois
 

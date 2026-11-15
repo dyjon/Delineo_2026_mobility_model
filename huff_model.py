@@ -13,7 +13,7 @@ lmb = 0.5
 #definitions of classes
 
 class POI:
-    def __init__(self, id: int, lat: float, long: float, loc_type: str):
+    def __init__(self, id, lat: float, long: float, loc_type: str):
         self.id = id
         self.lat = lat
         self.long = long
