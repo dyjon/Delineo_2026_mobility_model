@@ -2,6 +2,22 @@ import json
 import huff_model
 import csv
 
+#convert legacy Delineo Person class to our Person class
+def legacy_person_convert(oldperson):
+    times = []
+    if (oldperson.age < 18):
+        times = [(9,15), (22,6)]
+    else:
+        times = [(9,17), (22,6)]
+
+    newperson = huff_model.Person(oldperson.id, oldperson.location, times, [])
+    return newperson 
+
+#convert legacy Delineo Facility class to our POI class
+#can only convert from legacy Facilities, not Households, as Households don't have fixed locations
+def legacy_poi_convert(oldpoi):
+    newpoi = huff_model.POI(oldpoi.id, oldpoi.latitude, oldpoi.longitude, oldpoi.top_category)
+    return newpoi
 
 def parse_csv(path: str):
     pois = []
