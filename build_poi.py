@@ -15,6 +15,22 @@ def parse_csv(path: str):
 
     return pois
 
+def parse_geojson(path: str):
+    pois = []
+    top_level_tags = ["aeroway","amenity","barrier","cemetery","club","craft","dark_store","education","emergency","healthcare","highway","historic","landuse","leisure","man_made","mooring","natural","office","power","public_transport","railway","shop","telecom","tourism","traffic_calming","tunnel","waterway"]
+
+    with open(path,"r",encoding="utf-8-sig",newline="") as f:
+        data = json.load(f)
+        for row in data["features"]:
+            loctype = ''
+            for tag in top_level_tags:
+                if(tag in row["properties"].keys()):
+                    loctype += row["properties"]["amenity"] + ' '
+            
+            pois.append(huff_model.POI(row["id"], row["geometry"]["coordinates"][0], row["geometry"]["coordinates"][1], loctype))
+
+    return pois
+
 
 def output_probs(people: list[huff_model.Person], pois: list[huff_model.POI]):
     rows = []
