@@ -29,9 +29,18 @@ class Person:
 
 #de facto pseudocode asince I have not integrated data
 
-def desirability(subject: Person, location: POI, pois):
-    all_types = pft.get_all_types(pois)
-    type_groups = pft.get_type_groups(all_types)
+def desirability(subject, location, pois, precomputed=None):
+    if precomputed is None:
+        all_types = pft.get_all_types(pois)
+        type_groups = None
+    else:
+        all_types, type_groups = precomputed
+
+    if subject.desires and any(des in all_types for des in subject.desires):
+        return float(location.loc_type in subject.desires)
+
+    if type_groups is None:
+        type_groups = pft.get_type_groups(all_types)
 
     valid_groups = []
     for des in subject.desires:
@@ -62,17 +71,21 @@ def distance(subject: Person, location: POI):
     return 2 * 6371 * math.asin(math.sqrt(min(1.0, max(0.0, a))))
 
 def probability(subject: Person, locations: list[POI]):
+    all_types = pft.get_all_types(locations)
+    type_groups = (None if subject.desires and any(des in all_types for des in subject.desires) else pft.get_type_groups(all_types))
+    precomputed = (all_types, type_groups)
+
     desirabilities = []
     distances = []
 
     for i in range(len(locations)):
-        desirabilities.append(desirability(subject, locations[i], locations))
+        desirabilities.append(desirability(subject, locations[i], locations, precomputed))
         distances.append(max(distance(subject, locations[i]), 1e-10))
 
     sum_weight = 0.0
 
     for j in range(len(locations)):
-        sum_weight += math.pow(desirabilities[j], gma) / math.pow(distances[j], lmb)
+        sum_weight += (math.pow(desirabilities[j], gma) if desirabilities[j] > 0 else 0) / math.pow(distances[j], lmb)
 
     if sum_weight <= 0:
         raise ValueError("No attractive destinations are available.")
@@ -81,9 +94,9 @@ def probability(subject: Person, locations: list[POI]):
     probabilities = []
     for k in range(len(locations)):
         if k == 0:
-            probabilities.append((math.pow(desirabilities[k], gma) / math.pow(distances[k], lmb)) / sum_weight)
+            probabilities.append(((math.pow(desirabilities[k], gma) if desirabilities[k] > 0 else 0) / math.pow(distances[k], lmb)) / sum_weight)
         else:
-            probabilities.append((math.pow(desirabilities[k], gma) / math.pow(distances[k], lmb)) / sum_weight + probabilities[k-1])
+            probabilities.append(((math.pow(desirabilities[k], gma) if desirabilities[k] > 0 else 0) / math.pow(distances[k], lmb)) / sum_weight + probabilities[k-1])
 
     return probabilities
 
