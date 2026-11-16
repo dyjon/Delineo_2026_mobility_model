@@ -1,0 +1,274 @@
+desire,kind,matched_by,new_count,new_matches,original_count,original_matches
+agriculture_farming,category,word,1,agriculture_farming,1,agriculture_farming
+amusement_zoo_attractions,category,word,1,amusement_zoo_attractions,1,amusement_zoo_attractions
+apartment_residential,category,word,1,apartment_residential,1,apartment_residential
+apparel_personal_retail,category,word,1,apparel_personal_retail,1,apparel_personal_retail
+atms,category,word,1,atms,1,atms
+auto_service_sales,category,word,1,auto_service_sales,1,auto_service_sales
+banks_branches,category,word,1,banks_branches,1,banks_branches
+bars_breweries,category,word,1,bars_breweries,1,bars_breweries
+beauty_wellness_services,category,word,1,beauty_wellness_services,1,beauty_wellness_services
+building_unspecified,category,word,1,building_unspecified,1,building_unspecified
+cafes_beverages,category,word,1,cafes_beverages,1,cafes_beverages
+civic_membership_nonprofit,category,word,1,civic_membership_nonprofit,1,civic_membership_nonprofit
+community_social_services,category,word,1,community_social_services,1,community_social_services
+construction_industrial,category,word,1,construction_industrial,1,construction_industrial
+convenience_retail,category,word,1,convenience_retail,1,convenience_retail
+corporate_offices,category,word,1,corporate_offices,1,corporate_offices
+courier_shipping_logistics,category,word,1,courier_shipping_logistics,1,courier_shipping_logistics
+courts_detention,category,word,1,courts_detention,1,courts_detention
+dental_care,category,word,1,dental_care,1,dental_care
+diagnostics_laboratories,category,word,1,diagnostics_laboratories,1,diagnostics_laboratories
+education_unspecified,category,word,1,education_unspecified,1,education_unspecified
+emergency_urgent_care,category,word,1,emergency_urgent_care,1,emergency_urgent_care
+entertainment_unspecified,category,word,1,entertainment_unspecified,1,entertainment_unspecified
+event_festival_venues,category,word,1,event_festival_venues,1,event_festival_venues
+event_rental_services,category,word,1,event_rental_services,1,event_rental_services
+financial_services,category,word,1,financial_services,1,financial_services
+food_service_other,category,word,1,food_service_other,1,food_service_other
+fuel_ev_charging,category,word,1,fuel_ev_charging,1,fuel_ev_charging
+general_merchandise_retail,category,word,1,general_merchandise_retail,1,general_merchandise_retail
+grocery_food_retail,category,word,1,grocery_food_retail,1,grocery_food_retail
+gyms_fitness_studios,category,word,1,gyms_fitness_studios,1,gyms_fitness_studios
+health_services_unspecified,category,word,1,health_services_unspecified,1,health_services_unspecified
+higher_education,category,word,1,higher_education,1,higher_education
+historic_heritage_landmarks,category,word,1,historic_heritage_landmarks,1,historic_heritage_landmarks
+home_electronics_retail,category,word,1,home_electronics_retail,1,home_electronics_retail
+home_property_services,category,word,1,home_property_services,1,home_property_services
+hospitals,category,word,1,hospitals,1,hospitals
+hotels_other_lodging,category,word,1,hotels_other_lodging,1,hotels_other_lodging
+legal_services,category,word,1,legal_services,1,legal_services
+libraries,category,word,1,libraries,1,libraries
+manufacturing_industry,category,word,1,manufacturing_industry,1,manufacturing_industry
+marinas_transport_other,category,word,1,marinas_transport_other,1,marinas_transport_other
+media_printing_services,category,word,1,media_printing_services,1,media_printing_services
+mental_health_clinics,category,word,1,mental_health_clinics,1,mental_health_clinics
+museums_art_culture,category,word,1,museums_art_culture,1,museums_art_culture
+nightlife_gaming_venues,category,word,1,nightlife_gaming_venues,1,nightlife_gaming_venues
+parking_facilities,category,word,1,parking_facilities,1,parking_facilities
+performance_cinema_music,category,word,1,performance_cinema_music,1,performance_cinema_music
+personal_pet_laundry_services,category,word,1,personal_pet_laundry_services,1,personal_pet_laundry_services
+pharmacy_retail,category,word,1,pharmacy_retail,1,pharmacy_retail
+physical_alternative_therapy,category,word,1,physical_alternative_therapy,1,physical_alternative_therapy
+police_fire_public_safety,category,word,1,police_fire_public_safety,1,police_fire_public_safety
+preschool_education,category,word,1,preschool_education,1,preschool_education
+primary_family_clinics,category,word,1,primary_family_clinics,1,primary_family_clinics
+primary_secondary_school,category,word,1,primary_secondary_school,1,primary_secondary_school
+professional_design_services,category,word,1,professional_design_services,1,professional_design_services
+public_administration,category,word,1,public_administration,1,public_administration
+public_playgrounds_plazas,category,word,1,public_playgrounds_plazas,1,public_playgrounds_plazas
+quick_service_food,category,word,1,quick_service_food,1,quick_service_food
+real_estate_services,category,word,1,real_estate_services,1,real_estate_services
+recreation_clubs_organizations,category,word,1,recreation_clubs_organizations,1,recreation_clubs_organizations
+religious_organizations,category,word,1,religious_organizations,1,religious_organizations
+research_workplaces,category,word,1,research_workplaces,1,research_workplaces
+restaurants,category,word,1,restaurants,1,restaurants
+senior_living_residential,category,word,1,senior_living_residential,1,senior_living_residential
+specialized_learning,category,word,1,specialized_learning,1,specialized_learning
+specialty_outpatient_clinics,category,word,1,specialty_outpatient_clinics,1,specialty_outpatient_clinics
+specialty_retail,category,word,1,specialty_retail,1,specialty_retail
+sports_facilities_fields,category,word,1,sports_facilities_fields,1,sports_facilities_fields
+stadium_golf_venues,category,word,1,stadium_golf_venues,1,stadium_golf_venues
+technology_environment_security,category,word,1,technology_environment_security,1,technology_environment_security
+trails_nature_gardens,category,word,1,trails_nature_gardens,1,trails_nature_gardens
+transit_terminals_services,category,word,1,transit_terminals_services,1,transit_terminals_services
+travel_agency,category,word,1,travel_agency,1,travel_agency
+urban_parks,category,word,1,urban_parks,1,urban_parks
+utilities_telecommunications,category,word,1,utilities_telecommunications,1,utilities_telecommunications
+warehouses_storage,category,word,1,warehouses_storage,1,warehouses_storage
+water_geography_infrastructure,category,word,1,water_geography_infrastructure,1,water_geography_infrastructure
+wholesale_distribution,category,word,1,wholesale_distribution,1,wholesale_distribution
+worship_venues,category,word,1,worship_venues,1,worship_venues
+administration,word,word,1,public_administration,3,public_administration; public_playgrounds_plazas; wholesale_distribution
+agency,word,word,1,travel_agency,9,agriculture_farming; fuel_ev_charging; hotels_other_lodging; museums_art_culture; personal_pet_laundry_services; professional_design_services; restaurants; trails_nature_gardens; travel_agency
+agriculture,word,word,1,agriculture_farming,9,agriculture_farming; fuel_ev_charging; hotels_other_lodging; museums_art_culture; personal_pet_laundry_services; professional_design_services; restaurants; trails_nature_gardens; travel_agency
+alternative,word,word,1,physical_alternative_therapy,3,bars_breweries; cafes_beverages; libraries
+amusement,word,word,1,amusement_zoo_attractions,1,amusement_zoo_attractions
+apartment,word,word,1,apartment_residential,1,atms
+apparel,word,word,1,apparel_personal_retail,2,apparel_personal_retail; grocery_food_retail
+art,word,word,1,museums_art_culture,1,atms
+atms,word,word,1,atms,1,atms
+attractions,word,word,1,amusement_zoo_attractions,1,amusement_zoo_attractions
+auto,word,word,1,auto_service_sales,1,atms
+banks,word,word,1,banks_branches,1,atms
+bars,word,word,1,bars_breweries,1,atms
+beauty,word,word,1,beauty_wellness_services,1,atms
+beverages,word,word,1,cafes_beverages,3,bars_breweries; cafes_beverages; libraries
+branches,word,word,1,banks_branches,3,bars_breweries; cafes_beverages; libraries
+breweries,word,word,1,bars_breweries,3,bars_breweries; cafes_beverages; libraries
+building,word,word,1,building_unspecified,1,courts_detention
+cafes,word,word,1,cafes_beverages,1,atms
+care,word,none,0,,3,bars_breweries; cafes_beverages; libraries
+charging,word,word,1,fuel_ev_charging,1,courts_detention
+cinema,word,word,1,performance_cinema_music,3,convenience_retail; general_merchandise_retail; home_electronics_retail
+civic,word,word,1,civic_membership_nonprofit,1,civic_membership_nonprofit
+clinics,word,word,3,mental_health_clinics; primary_family_clinics; specialty_outpatient_clinics,3,mental_health_clinics; primary_family_clinics; primary_secondary_school
+clubs,word,word,1,recreation_clubs_organizations,3,bars_breweries; cafes_beverages; libraries
+community,word,word,1,community_social_services,2,community_social_services; courier_shipping_logistics
+construction,word,word,1,construction_industrial,1,courts_detention
+convenience,word,word,1,convenience_retail,3,convenience_retail; general_merchandise_retail; home_electronics_retail
+corporate,word,word,1,corporate_offices,1,courts_detention
+courier,word,word,1,courier_shipping_logistics,1,courts_detention
+courts,word,word,1,courts_detention,1,courts_detention
+culture,word,word,1,museums_art_culture,1,courts_detention
+dental,word,word,1,dental_care,2,apartment_residential; senior_living_residential
+design,word,word,1,professional_design_services,1,courts_detention
+detention,word,word,1,courts_detention,1,courts_detention
+diagnostics,word,word,1,diagnostics_laboratories,1,atms
+distribution,word,word,1,wholesale_distribution,3,public_administration; public_playgrounds_plazas; wholesale_distribution
+education,word,word,3,education_unspecified; higher_education; preschool_education,3,public_administration; public_playgrounds_plazas; wholesale_distribution
+electronics,word,word,1,home_electronics_retail,3,convenience_retail; general_merchandise_retail; home_electronics_retail
+emergency,word,word,1,emergency_urgent_care,2,home_property_services; media_printing_services
+entertainment,word,word,1,entertainment_unspecified,2,apartment_residential; senior_living_residential
+environment,word,word,1,technology_environment_security,2,apartment_residential; senior_living_residential
+estate,word,word,1,real_estate_services,1,atms
+ev,word,word,1,fuel_ev_charging,3,bars_breweries; cafes_beverages; libraries
+event,word,word,2,event_festival_venues; event_rental_services,1,courts_detention
+facilities,word,none,0,,6,construction_industrial; corporate_offices; diagnostics_laboratories; manufacturing_industry; parking_facilities; sports_facilities_fields
+family,word,word,1,primary_family_clinics,1,atms
+farming,word,word,1,agriculture_farming,1,atms
+festival,word,word,1,event_festival_venues,2,apartment_residential; senior_living_residential
+fields,word,word,1,sports_facilities_fields,3,bars_breweries; cafes_beverages; libraries
+financial,word,word,1,financial_services,2,apartment_residential; senior_living_residential
+fire,word,word,1,police_fire_public_safety,3,bars_breweries; cafes_beverages; libraries
+fitness,word,word,1,gyms_fitness_studios,1,atms
+food,word,word,3,food_service_other; grocery_food_retail; quick_service_food,2,apparel_personal_retail; grocery_food_retail
+fuel,word,word,1,fuel_ev_charging,6,emergency_urgent_care; event_festival_venues; nightlife_gaming_venues; stadium_golf_venues; water_geography_infrastructure; worship_venues
+gaming,word,word,1,nightlife_gaming_venues,1,atms
+gardens,word,word,1,trails_nature_gardens,3,bars_breweries; cafes_beverages; libraries
+general,word,word,1,general_merchandise_retail,3,convenience_retail; general_merchandise_retail; home_electronics_retail
+geography,word,word,1,water_geography_infrastructure,2,apparel_personal_retail; grocery_food_retail
+golf,word,word,1,stadium_golf_venues,2,apparel_personal_retail; grocery_food_retail
+grocery,word,word,1,grocery_food_retail,2,apparel_personal_retail; grocery_food_retail
+gyms,word,word,1,gyms_fitness_studios,1,atms
+health,word,word,2,health_services_unspecified; mental_health_clinics,1,atms
+heritage,word,word,1,historic_heritage_landmarks,3,bars_breweries; cafes_beverages; libraries
+higher,word,word,1,higher_education,2,home_property_services; media_printing_services
+historic,word,word,1,historic_heritage_landmarks,2,community_social_services; courier_shipping_logistics
+home,word,none,0,,2,research_workplaces; warehouses_storage
+hospitals,word,word,1,hospitals,1,hospitals
+hotels,word,word,1,hotels_other_lodging,1,atms
+industrial,word,word,1,construction_industrial,2,apartment_residential; senior_living_residential
+industry,word,word,1,manufacturing_industry,6,construction_industrial; corporate_offices; diagnostics_laboratories; manufacturing_industry; parking_facilities; sports_facilities_fields
+infrastructure,word,word,1,water_geography_infrastructure,6,construction_industrial; corporate_offices; diagnostics_laboratories; manufacturing_industry; parking_facilities; sports_facilities_fields
+laboratories,word,word,1,diagnostics_laboratories,3,bars_breweries; cafes_beverages; libraries
+landmarks,word,word,1,historic_heritage_landmarks,1,atms
+laundry,word,word,1,personal_pet_laundry_services,3,public_administration; public_playgrounds_plazas; wholesale_distribution
+learning,word,word,1,specialized_learning,9,agriculture_farming; fuel_ev_charging; hotels_other_lodging; museums_art_culture; personal_pet_laundry_services; professional_design_services; restaurants; trails_nature_gardens; travel_agency
+legal,word,word,1,legal_services,3,convenience_retail; general_merchandise_retail; home_electronics_retail
+libraries,word,word,1,libraries,1,libraries
+living,word,word,1,senior_living_residential,2,apartment_residential; senior_living_residential
+lodging,word,word,1,hotels_other_lodging,1,courts_detention
+logistics,word,word,1,courier_shipping_logistics,2,community_social_services; courier_shipping_logistics
+manufacturing,word,word,1,manufacturing_industry,6,construction_industrial; corporate_offices; diagnostics_laboratories; manufacturing_industry; parking_facilities; sports_facilities_fields
+marinas,word,word,1,marinas_transport_other,3,bars_breweries; cafes_beverages; libraries
+media,word,word,1,media_printing_services,2,apartment_residential; senior_living_residential
+membership,word,word,1,civic_membership_nonprofit,1,civic_membership_nonprofit
+mental,word,word,1,mental_health_clinics,3,convenience_retail; general_merchandise_retail; home_electronics_retail
+merchandise,word,word,1,general_merchandise_retail,3,convenience_retail; general_merchandise_retail; home_electronics_retail
+museums,word,word,1,museums_art_culture,1,amusement_zoo_attractions
+music,word,word,1,performance_cinema_music,1,atms
+nature,word,word,1,trails_nature_gardens,1,atms
+nightlife,word,word,1,nightlife_gaming_venues,6,emergency_urgent_care; event_festival_venues; nightlife_gaming_venues; stadium_golf_venues; water_geography_infrastructure; worship_venues
+nonprofit,word,word,1,civic_membership_nonprofit,1,civic_membership_nonprofit
+offices,word,word,1,corporate_offices,6,construction_industrial; corporate_offices; diagnostics_laboratories; manufacturing_industry; parking_facilities; sports_facilities_fields
+organizations,word,word,2,recreation_clubs_organizations; religious_organizations,1,courts_detention
+other,word,none,0,,1,courts_detention
+outpatient,word,word,1,specialty_outpatient_clinics,1,courts_detention
+parking,word,word,1,parking_facilities,7,higher_education; hospitals; pharmacy_retail; preschool_education; specialized_learning; specialty_outpatient_clinics; specialty_retail
+parks,word,word,1,urban_parks,1,atms
+performance,word,word,1,performance_cinema_music,2,research_workplaces; warehouses_storage
+personal,word,none,0,,2,apparel_personal_retail; grocery_food_retail
+pet,word,word,1,personal_pet_laundry_services,1,atms
+pharmacy,word,word,1,pharmacy_retail,1,atms
+physical,word,word,1,physical_alternative_therapy,7,higher_education; hospitals; pharmacy_retail; preschool_education; specialized_learning; specialty_outpatient_clinics; specialty_retail
+playgrounds,word,word,1,public_playgrounds_plazas,3,public_administration; public_playgrounds_plazas; wholesale_distribution
+plazas,word,word,1,public_playgrounds_plazas,1,atms
+police,word,word,1,police_fire_public_safety,2,home_property_services; media_printing_services
+preschool,word,word,1,preschool_education,2,research_workplaces; warehouses_storage
+primary,word,none,0,,3,mental_health_clinics; primary_family_clinics; primary_secondary_school
+printing,word,word,1,media_printing_services,1,courts_detention
+professional,word,word,1,professional_design_services,2,apartment_residential; senior_living_residential
+property,word,word,1,home_property_services,2,home_property_services; media_printing_services
+public,word,none,0,,3,public_administration; public_playgrounds_plazas; wholesale_distribution
+quick,word,word,1,quick_service_food,2,community_social_services; courier_shipping_logistics
+real,word,word,1,real_estate_services,2,apparel_personal_retail; grocery_food_retail
+recreation,word,word,1,recreation_clubs_organizations,1,courts_detention
+religious,word,word,1,religious_organizations,3,bars_breweries; cafes_beverages; libraries
+rental,word,word,1,event_rental_services,2,apartment_residential; senior_living_residential
+research,word,word,1,research_workplaces,2,research_workplaces; warehouses_storage
+residential,word,word,2,apartment_residential; senior_living_residential,2,apartment_residential; senior_living_residential
+restaurants,word,word,1,restaurants,1,restaurants
+retail,word,word,7,apparel_personal_retail; convenience_retail; general_merchandise_retail; grocery_food_retail; home_electronics_retail; pharmacy_retail; specialty_retail,2,apparel_personal_retail; grocery_food_retail
+safety,word,word,1,police_fire_public_safety,1,atms
+sales,word,word,1,auto_service_sales,1,atms
+school,word,word,1,primary_secondary_school,2,research_workplaces; warehouses_storage
+secondary,word,word,1,primary_secondary_school,2,research_workplaces; warehouses_storage
+security,word,word,1,technology_environment_security,7,higher_education; hospitals; pharmacy_retail; preschool_education; specialized_learning; specialty_outpatient_clinics; specialty_retail
+senior,word,word,1,senior_living_residential,1,courts_detention
+service,word,none,0,,2,home_property_services; media_printing_services
+services,word,none,0,,2,home_property_services; media_printing_services
+shipping,word,word,1,courier_shipping_logistics,1,civic_membership_nonprofit
+social,word,word,1,community_social_services,7,higher_education; hospitals; pharmacy_retail; preschool_education; specialized_learning; specialty_outpatient_clinics; specialty_retail
+specialized,word,word,1,specialized_learning,7,higher_education; hospitals; pharmacy_retail; preschool_education; specialized_learning; specialty_outpatient_clinics; specialty_retail
+specialty,word,none,0,,7,higher_education; hospitals; pharmacy_retail; preschool_education; specialized_learning; specialty_outpatient_clinics; specialty_retail
+sports,word,word,1,sports_facilities_fields,1,atms
+stadium,word,word,1,stadium_golf_venues,1,atms
+storage,word,word,1,warehouses_storage,2,research_workplaces; warehouses_storage
+studios,word,word,1,gyms_fitness_studios,1,atms
+technology,word,word,1,technology_environment_security,2,research_workplaces; warehouses_storage
+telecommunications,word,word,1,utilities_telecommunications,1,courts_detention
+terminals,word,word,1,transit_terminals_services,1,atms
+therapy,word,word,1,physical_alternative_therapy,5,banks_branches; dental_care; marinas_transport_other; physical_alternative_therapy; urban_parks
+trails,word,word,1,trails_nature_gardens,1,atms
+transit,word,word,1,transit_terminals_services,1,atms
+transport,word,word,1,marinas_transport_other,5,banks_branches; dental_care; marinas_transport_other; physical_alternative_therapy; urban_parks
+travel,word,word,1,travel_agency,3,bars_breweries; cafes_beverages; libraries
+unspecified,word,none,0,,5,building_unspecified; education_unspecified; entertainment_unspecified; health_services_unspecified; technology_environment_security
+urban,word,word,1,urban_parks,1,courts_detention
+urgent,word,word,1,emergency_urgent_care,1,courts_detention
+utilities,word,word,1,utilities_telecommunications,2,community_social_services; courier_shipping_logistics
+venues,word,none,0,,6,emergency_urgent_care; event_festival_venues; nightlife_gaming_venues; stadium_golf_venues; water_geography_infrastructure; worship_venues
+warehouses,word,word,1,warehouses_storage,2,research_workplaces; warehouses_storage
+water,word,word,1,water_geography_infrastructure,1,atms
+wellness,word,word,1,beauty_wellness_services,4,beauty_wellness_services; gyms_fitness_studios; legal_services; real_estate_services
+wholesale,word,word,1,wholesale_distribution,2,research_workplaces; warehouses_storage
+workplaces,word,word,1,research_workplaces,2,research_workplaces; warehouses_storage
+worship,word,word,1,worship_venues,1,courts_detention
+zoo,word,word,1,amusement_zoo_attractions,1,amusement_zoo_attractions
+restaurant,osm,word,1,restaurants,2,research_workplaces; warehouses_storage
+fast_food,osm,none,0,,1,amusement_zoo_attractions
+cafe,osm,word,1,cafes_beverages,3,bars_breweries; cafes_beverages; libraries
+bar,osm,word,1,bars_breweries,3,bars_breweries; cafes_beverages; libraries
+pub,osm,none,0,,3,public_administration; public_playgrounds_plazas; wholesale_distribution
+nightclub,osm,none,0,,6,emergency_urgent_care; event_festival_venues; nightlife_gaming_venues; stadium_golf_venues; water_geography_infrastructure; worship_venues
+pharmacy,osm,word,1,pharmacy_retail,1,atms
+bank,osm,word,1,banks_branches,5,banks_branches; dental_care; marinas_transport_other; physical_alternative_therapy; urban_parks
+atm,osm,word,1,atms,1,atms
+school,osm,word,1,primary_secondary_school,2,research_workplaces; warehouses_storage
+kindergarten,osm,none,0,,1,courts_detention
+college,osm,none,0,,1,courts_detention
+university,osm,none,0,,1,civic_membership_nonprofit
+hospital,osm,word,1,hospitals,7,higher_education; hospitals; pharmacy_retail; preschool_education; specialized_learning; specialty_outpatient_clinics; specialty_retail
+clinic,osm,word,3,mental_health_clinics; primary_family_clinics; specialty_outpatient_clinics,3,mental_health_clinics; primary_family_clinics; primary_secondary_school
+doctors,osm,none,0,,1,atms
+dentist,osm,none,0,,1,courts_detention
+place_of_worship,osm,none,0,,2,apparel_personal_retail; grocery_food_retail
+fuel,osm,word,1,fuel_ev_charging,6,emergency_urgent_care; event_festival_venues; nightlife_gaming_venues; stadium_golf_venues; water_geography_infrastructure; worship_venues
+parking,osm,word,1,parking_facilities,7,higher_education; hospitals; pharmacy_retail; preschool_education; specialized_learning; specialty_outpatient_clinics; specialty_retail
+library,osm,word,1,libraries,3,bars_breweries; cafes_beverages; libraries
+cinema,osm,word,1,performance_cinema_music,3,convenience_retail; general_merchandise_retail; home_electronics_retail
+theatre,osm,none,0,,1,atms
+supermarket,osm,none,0,,2,apparel_personal_retail; grocery_food_retail
+convenience,osm,word,1,convenience_retail,3,convenience_retail; general_merchandise_retail; home_electronics_retail
+clothes,osm,none,0,,1,atms
+fitness_centre,osm,none,0,,4,beauty_wellness_services; gyms_fitness_studios; legal_services; real_estate_services
+gym,osm,word,1,gyms_fitness_studios,1,atms
+post_office,osm,none,0,,6,construction_industrial; corporate_offices; diagnostics_laboratories; manufacturing_industry; parking_facilities; sports_facilities_fields
+police,osm,word,1,police_fire_public_safety,2,home_property_services; media_printing_services
+fire_station,osm,none,0,,1,courts_detention
+townhall,osm,none,0,,3,convenience_retail; general_merchandise_retail; home_electronics_retail
+marketplace,osm,none,0,,2,research_workplaces; warehouses_storage
+hotel,osm,word,1,hotels_other_lodging,2,research_workplaces; warehouses_storage
+park,osm,word,1,urban_parks,5,banks_branches; dental_care; marinas_transport_other; physical_alternative_therapy; urban_parks
+playground,osm,word,1,public_playgrounds_plazas,3,public_administration; public_playgrounds_plazas; wholesale_distribution
