@@ -25,9 +25,9 @@ def parse_geojson(path: str):
             loctype = ''
             for tag in top_level_tags:
                 if(tag in row["properties"].keys()):
-                    loctype += row["properties"]["amenity"] + ' '
+                    loctype += row["properties"][tag] + ' '
             
-            pois.append(huff_model.POI(row["id"], row["geometry"]["coordinates"][0], row["geometry"]["coordinates"][1], loctype))
+            pois.append(huff_model.POI(row["id"], row["geometry"]["coordinates"][1], row["geometry"]["coordinates"][0], loctype))
 
     return pois
 
